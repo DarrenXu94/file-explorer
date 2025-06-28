@@ -5,13 +5,11 @@ require("dotenv").config();
 const auth = new google.auth.GoogleAuth({
   // keyFile: "./service-account-key.json",
   credentials: {
-    client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    client_email: process.env.NETLIFY_GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.NETLIFY_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
   },
   scopes: ["https://www.googleapis.com/auth/drive.readonly"],
 });
-
-const ROOT_FOLDER_ID = "1JRtjXYtyZNlrpzJwNSR3j4ZLNeViyBh2";
 
 const drive = google.drive({ version: "v3", auth });
 
@@ -42,8 +40,6 @@ async function exploreFolder(folderId, pathPrefix = "") {
     }
   }
 }
-
-// exploreFolder(ROOT_FOLDER_ID).catch(console.error);
 
 // const items = exploreFolder(ROOT_FOLDER_ID)
 //   .then((files) => {
