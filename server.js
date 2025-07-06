@@ -4,7 +4,6 @@ require("dotenv").config();
 
 // Load your service account key JSON
 const auth = new google.auth.GoogleAuth({
-  // keyFile: "./service-account-key.json",
   credentials: {
     client_email: process.env.NETLIFY_GOOGLE_CLIENT_EMAIL,
     private_key: process.env.NETLIFY_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
