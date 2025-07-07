@@ -17,7 +17,7 @@ async function readSheet(id) {
     range: "Sheet1!A1:D5",
   });
 
-  return parseExerciseData(res.data.values);
+  return res.data.values;
 }
 
 function parseExerciseData(data) {
