@@ -14,7 +14,7 @@ const sheets = google.sheets({ version: "v4", auth });
 async function readSheet(id) {
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: id,
-    range: "Sheet1!A1:D5",
+    range: "Sheet1!A1:F5",
   });
 
   return res.data.values;
